@@ -1,0 +1,54 @@
+#!/bin/bash
+#
+#  Universal  aliasses   for Unix-like
+#  (c)  dsphinx 
+
+
+
+# Function for toggling Spotlight indexing
+#spotlight_switch off
+#spotlight_switch on
+
+spotlight_switch()
+{
+	/usr/bin/mdutil -i $1 /
+	# /usr/bin/mdutil -i $1 /Volumes/Backups
+}
+i
+
+
+# startup chimes
+alias sound_off="sudo nvsetvol 0"
+
+
+alias i="sw_vers" 
+# sudo ln -s /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport
+alias wifi="airport -I"
+alias wifi-scan="airport en1 scan"
+alias wifi-run-sniffer="sudo airport en1 sniff 6"
+alias passwords-show="security dump-keychain -d ~/Library/Keychains/login.keychain"
+
+# Voice commands
+# #
+# #   say 
+
+alias screen-capture="screencapture -iW ~/Desktop/screen.jpg"
+alias screen-capture-all="screencapture -S ~/Desktop/screen.jpg"
+# #
+# #  Firewall pfctl  , pfctl ... openbsd
+# #
+alias pf="sudo pfctl $*"
+
+# lion 
+# # show library
+chflags nohidden ~/Library/
+# # hide 
+# #chflags hidden ~/Library
+alias iso2dmg="hdiutil convert -format UDRW -o [ ("
+alias show_partions="diskutil list"
+#
+# )]
+
+
+
+

@@ -1,0 +1,16 @@
+.bash_profile
+.bash_functions
+.bashrc
+.bash_aliases-linux
+.bash_aliases-darwin
+.bash_environment_variables-linux
+.bash_environment_variables-darwin
+.bash_profile_line
+.bash_extra-z
+.bash_extra-greeting
+.bash_logout
+.vimrc
+.vim_runtime/
+bin/
+.bash_requiredfiles
+

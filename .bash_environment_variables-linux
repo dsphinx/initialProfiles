@@ -1,0 +1,50 @@
+#
+#   OS X  - all time -epended  
+#   Linux - after ssh remote  
+#   FreeBSD  - all time 
+#            
+# (c) dsphinx 2004-2016 
+#
+# loaded files by order:
+#
+
+
+# prompt
+PS1='\[\e]0;\u@\h: \w\a\]\[\e]0;\u@\h: \w\a\]\[\033[0;38m\][ \[\033[0;37m\]\u \[\033[0;31m\]\h \[\033[0;33m\]\w\[\033[0;38m\] ] \[\033[0m\]'
+
+# language
+export LANGUAGE="el_GR.UTF-8"     
+export LC_ALL="el_GR.UTF-8"
+export LC_CTYPE="UTF-8"
+export LANG="el_GR.UTF-8"
+
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+
+# PATH add new
+PATH=.:$PATH:/usr/local/sbin:/usr/sbin:/sbin
+
+
+# the default umask is set in /etc/profile; for setting the umask
+# for ssh logins, install and configure the libpam-umask package.
+umask 022
+
+chmod 711 $HOME
+
+## Note --clear option is a security feature ##
+/usr/bin/keychain --clear  $HOME/.ssh/id_rsa
+source $HOME/.keychain/$HOSTNAME-sh
+
+
+
+# 
+#  Debug Development  
+#
+#if [ "$HOME" != "~" ];then
+#PS1='\[\e]0;\u@\h: \w\a\]\[\e]0;\u@\h: \w\a\]\[\033[0;38m\][ \[\033[0;37m\] testing scripts \[\033[0;31m\]\h \[\033[0;33m\]\w\[\033[0;38m\] ] \[\033[0m\]'
+#fi
+

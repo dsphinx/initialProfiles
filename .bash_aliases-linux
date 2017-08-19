@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+#  Universal  aliasses   for Unix-like
+#  (c)  dsphinx 
+
+
+
+
+# Virtual machine kvm
+#alias test.iso='kvm -name testing -m 2048 -hda /data/storage/VirtualMachine/kvm-images/isotesting.qcow2 -cdrom $*  -boot d '
+alias test.iso='kvm -name testing -m 2048 -cdrom $* '
+
+
+# 
+# Section: storage
+alias usage="du -h --max-depth=1 | sort -rh"
+
+
+
