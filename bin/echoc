@@ -1,0 +1,50 @@
+#!/usr/bin/perl
+#
+# Colorize rxvt100 text line
+#
+# (c) dsphinx 2004
+# 
+#  syntax : 
+#            echoc String Color what
+#output:
+
+
+
+use Term::ANSIColor;
+use strict;
+
+my (@ina)=@ARGV;
+
+if ($#ina eq 0) {
+   print $ina[0];
+   exit 1;
+}
+
+my (%cols) = ( "red"    ,'red',
+               "green"  ,'green',
+               "blue"   ,'blue',
+               "white"  ,'white',
+               "blink"  ,'blink',
+               "magenta",'magenta',
+               "bold"   ,'bold',
+               "reverse", 'reverse',
+               "yellow", 'yellow',
+             );
+
+  print color $cols{$ina[1]};
+  $ina[0] =~ s/\n//;
+  print  $ina[0];
+
+
+print color 'reset';
+if ($ina[2]) {
+ $ina[2] = ~ s/\n//;
+print "\033[300C\033[20D" . "[ ";
+print color 'green';
+print $ARGV[2];
+print color 'reset';
+print " ]";
+}
+
+print "\n";
+exit;
